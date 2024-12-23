@@ -1,6 +1,7 @@
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
+    snowflake.style.top = '0';  
     
     // Random starting position
     snowflake.style.left = Math.random() * 100 + 'vw';
@@ -14,7 +15,7 @@ function createSnowflake() {
     snowflake.style.height = size + 'px';
     
     // Random animation duration
-    const animationDuration = Math.random() * 3 + 4;
+    const animationDuration = Math.random() * 5 + 8;
     snowflake.style.animationDuration = animationDuration + 's';
     
     document.body.appendChild(snowflake);
