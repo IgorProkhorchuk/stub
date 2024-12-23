@@ -53,3 +53,24 @@ h1 {
 .coming-soon-text span {
     display: none;
 }
+
+.snowflake {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) translateX(20px) rotate(360deg);
+    }
+}
