@@ -54,6 +54,13 @@ h1 {
     display: none;
 }
 
+.countdown {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #f9ba5b;
+    letter-spacing: 1px;
+}
+
 .snowflake {
     position: fixed;
     width: 10px;
