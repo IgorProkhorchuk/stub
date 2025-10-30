@@ -17,15 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (![...texts].some(span => span.style.display === "inline")) {
         document.querySelector(".coming-soon-text span[lang='en']").style.display = "inline";
     }
-
     const countdownElement = document.getElementById("countdown");
     if (!countdownElement) {
         return;
     }
-
-    const openingDate = new Date("2025-11-25T00:00:00").getTime();
+    const openingDate = new Date("2025-11-25T00:00:00"); 
     let intervalId;
-
     const updateCountdown = () => {
         const now = Date.now();
         const distance = openingDate - now;
@@ -47,9 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const pad = (value) => String(value).padStart(2, "0");
 
-        countdownElement.textContent = `Opening in ${days} days ${pad(hours)} hours ${pad(minutes)} minutes ${pad(seconds)} seconds`;
+        countdownElement.textContent = `${days} days ${pad(hours)} hours ${pad(minutes)} minutes ${pad(seconds)} seconds`;
     };
 
     intervalId = setInterval(updateCountdown, 1000);
     updateCountdown();
+
 });
