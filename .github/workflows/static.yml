@@ -20,8 +20,9 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.0.3
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete"
+          ARGS: "-rzlt --delete --no-owner --no-group --omit-dir-times"
           SOURCE: "./"
           REMOTE_HOST: "87.106.40.134"
           REMOTE_USER: "igor"
           TARGET: "/var/www/html/cut-by-me.de/public_html/"
+          EXCLUDE: ".git/, .github/"
