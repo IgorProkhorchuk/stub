@@ -7,10 +7,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 87.106.40.134 >> ~/.ssh/known_hosts
 
       - name: Deploy via rsync over SSH
         uses: easingthemes/ssh-deploy@v5.0.3
