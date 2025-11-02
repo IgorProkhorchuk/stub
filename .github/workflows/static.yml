@@ -7,16 +7,17 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via rsync
-        uses: burnett01/rsync-deployments@v6.0.0
-        with:
-          switches: -avzr --delete
-          path: ./
-          remote_path: /var/www/html/cut-by-me.de/public_html/
-          remote_host: 87.106.40.134
-          remote_user: igor
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy via rsync over SSH
+        uses: easingthemes/ssh-deploy@v5.0.3
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "./"
+          REMOTE_HOST: "87.106.40.134"
+          REMOTE_USER: "igor"
+          TARGET: "/var/www/html/cut-by-me.de/public_html/"
